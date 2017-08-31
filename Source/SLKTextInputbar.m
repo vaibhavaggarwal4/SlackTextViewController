@@ -107,6 +107,16 @@ NSString * const SLKTextInputbarDidMoveNotification =   @"SLKTextInputbarDidMove
 
 #pragma mark - UIView Overrides
 
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+  
+  [self bringSubviewToFront:self.textView];
+  [self bringSubviewToFront:self.rightButton];
+  [self bringSubviewToFront:self.leftButton];
+  
+}
+
 - (void)layoutIfNeeded
 {
     if (self.constraints.count == 0 || !self.window) {
